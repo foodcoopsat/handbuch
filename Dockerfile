@@ -6,7 +6,7 @@ COPY book.toml /book/
 COPY src /book/src
 RUN mdbook build /book
 
-FROM alpine:3.16
+FROM alpine:3.18
 RUN apk add --no-cache lighttpd
 
 COPY --from=builder /book/book /var/www/localhost/htdocs
